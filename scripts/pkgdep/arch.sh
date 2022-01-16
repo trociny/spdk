@@ -50,6 +50,10 @@ if [[ $INSTALL_FUSE == "true" ]]; then
 	# Additional dependencies for FUSE and NVMe-CUSE
 	pacman -Sy --needed --noconfirm fuse3
 fi
+if [[ $INSTALL_RBD == "true" ]]; then
+	# Additional dependencies for RBD bdev in NVMe over Fabrics
+	pacman -Sy --needed --noconfirm librados-devel librbd-devel
+fi
 if [[ $INSTALL_RDMA == "true" ]]; then
 	# Additional dependencies for RDMA transport in NVMe over Fabrics
 	if [[ -n "$http_proxy" ]]; then
